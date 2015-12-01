@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html ng-app="workshop">
+
+    <head>
+
+        <title>Voorbeeld app</title>
+
+        <base href="/Workshop-client/">
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="assets/css/layout.css" />
+
+        <script type="text/javascript" src="assets/libraries.js"></script>
+        <script type="text/javascript" src="app/app.js"></script>
+
+    </head>
+
+    <body ng-controller="AppController">
+
+        <header ng-include="'assets/partials/header.html'"></header>
+
+        <main ng-view></main>
+
+    </body>
+
+</html>

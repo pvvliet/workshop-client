@@ -1,0 +1,27 @@
+<div class="jumbotron">
+
+    <h1>Peters applicatie</h1>
+
+    <p>Mooi toch?</p>
+
+    <ul class="nav nav-pills">
+
+        <li role="presentation" ng-class="{ 'active': isLocation('/') }">
+            <a ng-click="gotoHome()">
+                <span class="glyphicon glyphicon-home"></span>
+                Home
+            </a>
+        </li>
+
+        <li role="presentation" ng-class="{ 'active': isLocation('/register') }">
+            <a ng-click="gotoRegistration()">
+                <span class="glyphicon glyphicon-user"></span>
+                Aanmelden
+            </a>
+        </li>
+        
+        <!-- Voeg hier meer menu items toe -->
+
+    </ul>
+
+</div>

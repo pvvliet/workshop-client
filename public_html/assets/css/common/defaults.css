@@ -1,0 +1,14 @@
+
+/*
+ * Standard styling voor de gehele applicatie
+ */
+
+body
+{
+    padding: 20px;
+}
+
+a
+{
+    cursor: pointer;
+}
