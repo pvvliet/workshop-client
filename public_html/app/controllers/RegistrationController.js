@@ -16,15 +16,15 @@ angular.module('workshop').controller('RegistrationController', function($scope,
             $scope.name,
             $scope.postcode,
             $scope.streetnumber,
-            $scope.street,
-            $scope.city,
             $scope.email,
+            $scope.password,
             userCreated
         );
     };
     
     var userCreated = function()
     {
-        
+        alert('Uw account is aangemaakt, u kunt nu inloggen');
+        $scope.gotoHome();
     };
 });

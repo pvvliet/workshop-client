@@ -1,4 +1,4 @@
-<h1>Welkom</h1>
+<h1>Welkom {{ authenticated ? authenticator.fullName : 'vreemdeling' }}</h1>
 
 <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -11,3 +11,27 @@
     Nullam egestas orci nec metus pretium hendrerit.
     Ut ullamcorper feugiat pellentesque.
 </p>
+
+<div class="panel panel-default" ng-if="!authenticated">
+    
+    <div class="panel-heading">
+        Inloggen
+    </div>
+    
+    <form name="loginForm" class="panel-body" ng-submit="login()" novalidate>
+        
+        <div class="form-group">
+            <label class="control-label">E-mailadres</label>
+            <input type="email" class="form-control" ng-model="$parent.email" ng-required="true" />
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Password</label>
+            <input type="password" class="form-control" ng-model="$parent.password" ng-required="true" />
+        </div>
+        
+        <input type="submit" class="btn btn-primary" value="Inloggen" ng-disabled="loginForm.$invalid" />
+        
+    </form>
+    
+</div>

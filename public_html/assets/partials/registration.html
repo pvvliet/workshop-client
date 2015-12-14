@@ -6,21 +6,21 @@
         Uw gegevens
     </div>
 
-    <form class="panel-body" ng-submit="register()" novalidate>
+    <form name="registrationForm" class="panel-body" ng-submit="register()" novalidate>
 
         <div class="form-group">
             <label class="control-label">Naam</label>
-            <input type="text" class="form-control" ng-model="name" placeholder="Bijv. Pietje Puk" />
+            <input type="text" class="form-control" ng-model="name" placeholder="Bijv. Pietje Puk" ng-required="true" />
         </div>
 
         <div class="form-group">
             <label class="control-label">Postcode</label>
-            <input type="text" class="form-control" ng-model="postcode" placeholder="Bijv. 1234AB" />
+            <input type="text" class="form-control" ng-model="postcode" placeholder="Bijv. 1234AB" ng-required="true" />
         </div>
 
         <div class="form-group">
             <label class="control-label">Huisnummer</label>
-            <input type="text" class="form-control" ng-model="streetnumber" placeholder="Bijv. 29a" />
+            <input type="text" class="form-control" ng-model="streetnumber" placeholder="Bijv. 29a" ng-required="true" />
         </div>
 
         <p>
@@ -29,20 +29,25 @@
 
         <div class="form-group">
             <label class="control-label">Straatnaam</label>
-            <input type="text" class="form-control" ng-model="street" disabled />
+            <input type="text" class="form-control" ng-model="street" disabled ng-required="true" />
         </div>
 
         <div class="form-group">
             <label class="control-label">Woonplaats</label>
-            <input type="text" class="form-control" ng-model="city" disabled />
+            <input type="text" class="form-control" ng-model="city" disabled ng-required="true" />
         </div>
 
         <div class="form-group">
             <label class="control-label">E-mailadres</label>
-            <input type="email" class="form-control" ng-model="email" placeholder="Bijv. info@domein.nl" />
+            <input type="email" class="form-control" ng-model="email" placeholder="Bijv. info@domein.nl" ng-required="true" />
         </div>
 
-        <input type="submit" class="btn btn-primary" value="Aanmelden" />
+        <div class="form-group">
+            <label class="control-label">Wachtwoord</label>
+            <input type="password" class="form-control" ng-model="password" ng-required="true" />
+        </div>
+        
+        <input type="submit" class="btn btn-primary" value="Aanmelden" ng-disabled="registrationForm.$invalid" />
 
     </form>
     

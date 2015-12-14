@@ -1,0 +1,26 @@
+<h1>Leden</h1>
+
+<div class="panel panel-default">
+    
+    <div class="panel-heading">
+        Overzicht
+    </div>
+    
+    <table class="table">
+        <thead>
+            <th>Volledige naam</th>
+            <th>Postcode</th>
+            <th>Huisnummer</th>
+            <th>E-mailadres</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{ user.fullName }}</td>
+                <td>{{ user.postcode }}</td>
+                <td>{{ user.streetnumber }}</td>
+                <td>{{ user.emailAddress }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

@@ -1,5 +1,5 @@
 
-angular.module('workshop').controller('AppController', function($scope, $location)
+angular.module('workshop').controller('AppController', function($scope, $location, authenticationService)
 {
     $scope.isLocation = function(location)
     {
@@ -14,5 +14,16 @@ angular.module('workshop').controller('AppController', function($scope, $locatio
     $scope.gotoRegistration = function()
     {
         $location.path('/register');
+    };
+    
+    $scope.gotoOverview = function()
+    {
+        $location.path('/overview');
+    };
+    
+    $scope.logout = function()
+    {
+        authenticationService.deleteAuthentication();
+        $scope.gotoHome();
     };
 });
