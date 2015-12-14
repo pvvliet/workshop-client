@@ -30,6 +30,13 @@
             <input type="password" class="form-control" ng-model="$parent.password" ng-required="true" />
         </div>
         
+        <div class="form-group">
+            <label>
+                <input type="checkbox" ng-model="$parent.remember" />
+                Gegevens onthouden
+            </label>
+        </div>
+        
         <input type="submit" class="btn btn-primary" value="Inloggen" ng-disabled="loginForm.$invalid" />
         
     </form>

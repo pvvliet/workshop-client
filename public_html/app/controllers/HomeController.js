@@ -8,9 +8,7 @@ angular.module('workshop').controller('HomeController', function($scope, authent
         userService.authenticate(function(authenticator)
         {
             authenticationService.setAuthenticator(authenticator);
-            authenticationService.storeAuthentication();
-            
-            console.log('Logged in');
+            authenticationService.storeAuthentication($scope.remember);
         });
         
     };
