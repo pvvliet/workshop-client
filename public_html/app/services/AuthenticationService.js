@@ -4,6 +4,7 @@
   * @author Peter van Vliet <p.van.vliet@anyvation.com>
   * 
   * @param {object} $window The angular window object.
+  * @param {object} $rootScope The angular rootScope object.
   */
 angular.module('workshop').service('authenticationService', function($window, $rootScope)
 {

@@ -3,11 +3,15 @@ angular.module('workshop').service('userService', function($http)
 {
     var self = this;
     
-    self.authenticate = function(onSuccess, onFailure)
+    self.authenticate = function(onSuccess)
     {
         var uri = '/api/users/me';
         
-        $http.get(uri).success(onSuccess).error(function(message, status)
+        $http.get(uri).then(function(response)
+        {
+            onSuccess(response.data);
+        },
+        function(message, status)
         {
             alert('Inloggen mislukt: ' + message);
         });
@@ -25,7 +29,11 @@ angular.module('workshop').service('userService', function($http)
             password: password
         };
 
-        $http.post(uri, data).success(onCreated).error(function(message, status)
+        $http.post(uri, data).then(function(response)
+        {
+            onCreated(response.data);
+        },
+        function(message, status)
         {
             alert('Aanmaken mislukt: ' + message);
         });
@@ -35,7 +43,11 @@ angular.module('workshop').service('userService', function($http)
     {
         var uri = '/api/users';
         
-        $http.get(uri).success(onReceived).error(function(message, status)
+        $http.get(uri).then(function(response)
+        {
+            onReceived(response.data);
+        },
+        function(message, status)
         {
             alert('Ophalen mislukt: ' + message);
         });

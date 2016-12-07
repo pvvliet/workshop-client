@@ -12,8 +12,10 @@ angular.module('workshop').service('addressService', function($http)
             + '&ref=domeinnaam.nl'
             + '&type=json';
     
-        $http.get(url).success(function(data)
+        $http.get(url).then(function(response)
         {
+            var data = response.data;
+            
             if (data.status === 'ok')
             {
                 onRetrieved(data.details[0]);
@@ -22,7 +24,7 @@ angular.module('workshop').service('addressService', function($http)
             {
                 handleError();
             }
-        }).error(handleError);
+        }, handleError);
     };
     
     // Private function
