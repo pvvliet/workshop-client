@@ -1,0 +1,31 @@
+<md-card>
+
+    <md-card-header>
+        <md-card-title>
+            <h1>Register</h1>
+        </md-card-title>
+    </md-card-header>
+
+    <md-card-content>
+
+        <form name="loginForm" #rloginForm="ngForm" (ngSubmit)="login()">
+
+            <md-input-container class="md-block">
+                <input mdInput type="text" name="email" placeholder="Email address" required [(ngModel)]="user.emailAddress" />
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <input mdInput type="password" name="password" placeholder="password" required [(ngModel)]="user.password" />
+            </md-input-container>
+
+            <button md-button type="submit" class="md-raised md-primary">Login</button>
+
+        </form>
+
+    </md-card-content>
+
+    <md-card-actions>
+        <button md-button routerLink="/">Register</button>
+    </md-card-actions>
+
+</md-card>

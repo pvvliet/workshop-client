@@ -1,0 +1,17 @@
+
+md-card
+{
+    width: 300px;
+    padding: 0px;
+    margin: 20px;
+}
+
+md-card-content
+{
+    padding: 10px;
+}
+
+md-input-container
+{
+    width: 100%;
+}

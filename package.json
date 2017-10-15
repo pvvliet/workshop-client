@@ -1,0 +1,54 @@
+{
+  "name": "WorkshopClient",
+  "description": "HSLeiden workshop demo application",
+  "version": "1.0.0",
+  "license": "WTFPL",
+  
+  "repository":
+  {
+    "type": "git",
+    "url": "git://github.com/pvvliet/workshop-client.git"
+  },
+  
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  
+  "author": "Peter van Vliet",
+  "contributors": [],
+  
+  "dependencies":
+  {
+    "@angular/animations": "^4.4.3",
+    "@angular/common": "^4.4.3",
+    "@angular/compiler": "^4.4.3",
+    "@angular/compiler-cli": "^4.4.3",
+    "@angular/core": "^4.4.3",
+    "@angular/forms": "^4.4.3",
+    "@angular/http": "^4.4.3",
+    "@angular/cdk": "^2.0.0-beta.11",
+    "@angular/material": "^2.0.0-beta.11",
+    "@angular/platform-browser": "^4.4.3",
+    "@angular/platform-browser-dynamic": "^4.4.3",
+    "@angular/platform-server": "^4.4.3",
+    "@angular/router": "^4.4.3",
+    "@angular/tsc-wrapped": "~4.4.3",
+    "@angular/upgrade": "~4.4.3",
+    "angular-in-memory-web-api": "~0.3.1",
+    "core-js": "^2.4.1",
+    "rxjs": "5.0.1",
+    "systemjs": "0.19.39",
+    "zone.js": "^0.8.4",
+    "traceur": "0.0.111",
+    "hammerjs": "2.0.8"
+  },
+  
+  "devDependencies":
+  {
+      "typescript": "^2.2.2"
+  }
+}
