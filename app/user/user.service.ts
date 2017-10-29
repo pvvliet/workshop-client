@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiService } from '../common/api.service';
-import { AuthorizationService } from '../common/authorization.service';
+import { ApiService } from '../shared/api.service';
+import { AuthorizationService } from '../shared/authorization.service';
 
 import { User } from './user';
 
@@ -31,14 +31,11 @@ export class UserService
             password: user.password
         };
         
-        let observable: Observable<void> = this.api.get<void>('users');
+        let observable = this.api.post<void>('users', data);
         
         observable.subscribe
         (
-            data =>
-            {
-                alert('Success');
-            },
+            data => {},
             error =>
             {
                 alert('Het registreren is mislukt');
@@ -52,16 +49,13 @@ export class UserService
     {
         this.authService.setAuthorization(user.emailAddress, user.password);
         
-        let observable: Observable<User> = this.api.get<User>('users/me');
+        let observable = this.api.get<User>('users/me');
         
         observable.subscribe
         (
-            data =>
+            authenticator =>
             {
-                this.authService.setAuthenticator(data);
-                this.authService.storeAuthorization(remember);
-                
-                alert('Success');
+                this.authService.storeAuthorization(authenticator, remember);
             },
             error =>
             {
@@ -70,5 +64,10 @@ export class UserService
         );
         
         return observable;
+    }
+    
+    public logout()
+    {
+        this.authService.deleteAuthorization();
     }
 }

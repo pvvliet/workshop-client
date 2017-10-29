@@ -5,16 +5,26 @@ import { UserService } from '../user.service';
 import { User } from '../user';
 
 @Component({
-    selector: 'app-login-form',
-    templateUrl: 'app/user/login/login.component.html',
-    styleUrls: ['app/user/login/login.component.css'],
+    selector: 'user-list',
+    templateUrl: 'app/user/list/list.component.html',
+    styleUrls: ['app/user/list/list.component.css'],
 })
 export class ListComponent
 {
-    users: User[];
+    public users: User[];
     
     constructor(private userService: UserService)
     {
-        userService.getAll();
+        this.getUsersList();
+    }
+    
+    private getUsersList()
+    {
+        this.userService.getAll().subscribe(
+            users =>
+            {
+                this.users = users;
+            }
+        );
     }
 }

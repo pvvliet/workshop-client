@@ -1,12 +1,15 @@
 
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AuthorizationService
 {
-    login: string = null;
-    password: string = null;
-    authenticator: Object = null;
+    private login: string = null;
+    private password: string = null;
+    private authenticator: Object = null;
+    
+    public authorized$ = new Subject<boolean>();
     
     constructor()
     {
@@ -24,8 +27,10 @@ export class AuthorizationService
         this.password = password;
     }
     
-    public storeAuthorization(local: boolean)
+    public storeAuthorization(authenticator: Object, local: boolean)
     {
+        this.authenticator = authenticator;
+        
         let authorization =
         {
             login: this.login,
@@ -37,6 +42,8 @@ export class AuthorizationService
         let storage = local ? localStorage : sessionStorage;
 
         storage.setItem('authorization', authorizationString);
+        
+        this.authorized$.next(true);
     }
     
     private restoreAuthorization(): void
@@ -55,6 +62,8 @@ export class AuthorizationService
             this.login = authorization['login'];
             this.password = authorization['password'];
             this.authenticator = authorization['authenticator'];
+            
+            this.authorized$.next(true);
         }
     }
     
@@ -66,6 +75,8 @@ export class AuthorizationService
 
         sessionStorage.removeItem('authorization');
         localStorage.removeItem('authorization');
+        
+        this.authorized$.next(false);
     }
     
     public createAuthorizationString(): string

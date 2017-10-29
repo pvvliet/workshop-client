@@ -5,7 +5,7 @@ import { UserService } from '../user.service';
 import { User } from '../user';
 
 @Component({
-    selector: 'app-login-form',
+    selector: 'user-login-form',
     templateUrl: 'app/user/login/login.component.html',
     styleUrls: ['app/user/login/login.component.css'],
 })
@@ -20,6 +20,11 @@ export class LoginComponent
     
     login()
     {
-        this.userService.login(this.user, false);
+        this.userService.login(this.user, false).subscribe(
+            authenticator =>
+            {
+                //alert('Welcome ' + authenticator.fullName);
+            }
+        );
     }
 }

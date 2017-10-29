@@ -1,0 +1,13 @@
+<md-toolbar>
+    
+  Peters applicatie
+  
+  <div *ngIf="authenticated">
+      <ul>
+          <li routerLink="/">Home</li>
+          <li routerLink="/users">Users</li>
+          <li (click)="logout()">Uitloggen</li>
+      </ul>
+  </div>
+  
+</md-toolbar>

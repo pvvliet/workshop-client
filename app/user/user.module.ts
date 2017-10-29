@@ -1,20 +1,19 @@
 
 import { NgModule } from '@angular/core';
-import { MdCardModule, MdButtonModule } from '@angular/material';
-import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
 
-import { ApiService } from '../common/api.service';
+import { PublicModule } from '../public.module';
+
+import { SharedModule } from '../shared/shared.module';
 import { UserService } from './user.service';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
-    imports: [ RouterModule, HttpModule, FormsModule, MdCardModule, MdButtonModule ],
-    declarations: [ RegisterComponent, LoginComponent ],
-    exports: [ RegisterComponent, LoginComponent ],
-    providers: [ ApiService, UserService ]
+    imports: [ PublicModule, SharedModule ],
+    exports: [ LoginComponent ],
+    declarations: [ RegisterComponent, LoginComponent, ListComponent ],
+    providers: [ UserService ]
 })
 export class UserModule { }
