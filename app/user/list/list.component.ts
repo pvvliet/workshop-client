@@ -1,8 +1,9 @@
 
 import { Component } from '@angular/core';
 
+import { ListDataSource } from './list.datasource';
+
 import { UserService } from '../user.service';
-import { User } from '../user';
 
 @Component({
     selector: 'user-list',
@@ -11,7 +12,8 @@ import { User } from '../user';
 })
 export class ListComponent
 {
-    public users: User[];
+    public displayedColumns = ['fullName', 'postcode', 'streetnumber', 'emailAddress'];
+    public dataSource = null;
     
     constructor(private userService: UserService)
     {
@@ -23,8 +25,13 @@ export class ListComponent
         this.userService.getAll().subscribe(
             users =>
             {
-                this.users = users;
+                this.dataSource = new ListDataSource(users);
             }
         );
+    }
+    
+    public hasData()
+    {
+        return this.dataSource !== null;
     }
 }

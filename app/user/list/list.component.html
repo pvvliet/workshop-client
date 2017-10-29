@@ -1,12 +1,32 @@
 <h1>Users</h1>
 
-<table>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{ user.fullName }}</td>
-            <td>{{ user.postcode }}</td>
-            <td>{{ user.streetnumber }}</td>
-            <td>{{ user.emailAddress }}</td>
-        </tr>
-    </tbody>  
-</table>
+<div class="user-list mat-elevation-z8" *ngIf="hasData()">
+
+    <mat-table #table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="fullName">
+            <mat-header-cell *matHeaderCellDef>Naam</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.fullName }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="postcode">
+            <mat-header-cell *matHeaderCellDef>Postcode</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.postcode }}</mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="streetnumber">
+            <mat-header-cell *matHeaderCellDef>Huisnummer</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.streetnumber }}</mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="emailAddress">
+            <mat-header-cell *matHeaderCellDef>E-mailadres</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.emailAddress }}</mat-cell>
+        </ng-container>
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+
+</div>

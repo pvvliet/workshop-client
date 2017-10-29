@@ -20,11 +20,6 @@ export class LoginComponent
     
     login()
     {
-        this.userService.login(this.user, false).subscribe(
-            authenticator =>
-            {
-                //alert('Welcome ' + authenticator.fullName);
-            }
-        );
+        this.userService.login(this.user, false);
     }
 }

@@ -1,43 +1,58 @@
-<md-card>
+<mat-card>
 
-    <md-card-header>
-        <md-card-title>
+    <mat-card-header>
+        <mat-card-title>
             <h1>Registreren</h1>
-        </md-card-title>
-    </md-card-header>
+        </mat-card-title>
+    </mat-card-header>
 
-    <md-card-content>
+    <mat-card-content>
 
         <form name="registerForm" #registerForm="ngForm" (ngSubmit)="register()">
 
-            <md-input-container class="md-block">
-                <input mdInput type="text" name="name" placeholder="Full name" required [(ngModel)]="user.fullName" />
-            </md-input-container>
+            <mat-form-field class="full-width">
+                <input matInput type="text" name="name" placeholder="Volledige naam" required [(ngModel)]="user.fullName" #fullName="ngModel" />
+                <mat-error [hidden]="fullName.valid">
+                    Dit veld is verplicht
+                </mat-error>
+            </mat-form-field>
 
-            <md-input-container class="md-block">
-                <input mdInput type="text" name="postcode" placeholder="Postcode" required [(ngModel)]="user.postcode" />
-            </md-input-container>
+            <mat-form-field class="full-width">
+                <input matInput type="text" name="postcode" placeholder="Postcode" required [(ngModel)]="user.postcode" #postcode="ngModel" />
+                <mat-error [hidden]="postcode.valid">
+                    Dit veld is verplicht
+                </mat-error>
+            </mat-form-field>
             
-            <md-input-container class="md-block">
-                <input mdInput type="text" name="streetnumber" placeholder="Streetnumber" required [(ngModel)]="user.streetnumber" />
-            </md-input-container>
+            <mat-form-field class="full-width">
+                <input matInput type="text" name="streetnumber" placeholder="Huisnummer" required [(ngModel)]="user.streetnumber" #streetnumber="ngModel" />
+                <mat-error [hidden]="streetnumber.valid">
+                    Dit veld is verplicht
+                </mat-error>
+            </mat-form-field>
             
-            <md-input-container class="md-block">
-                <input mdInput type="text" name="email" placeholder="Email address" required [(ngModel)]="user.emailAddress" />
-            </md-input-container>
+            <mat-form-field class="full-width">
+                <input matInput type="text" name="email" placeholder="E-mailadres" required [(ngModel)]="user.emailAddress" #email="ngModel" />
+                <mat-error [hidden]="email.valid">
+                    Dit veld is verplicht
+                </mat-error>
+            </mat-form-field>
 
-            <md-input-container class="md-block">
-                <input mdInput type="password" name="password" placeholder="password" required [(ngModel)]="user.password" />
-            </md-input-container>
+            <mat-form-field class="full-width">
+                <input matInput type="password" name="password" placeholder="Wachtwoord" required [(ngModel)]="user.password" #password="ngModel" />
+                <mat-error [hidden]="password.valid">
+                    Dit veld is verplicht
+                </mat-error>
+            </mat-form-field>
 
-            <button md-button type="submit" class="md-raised md-primary">Register</button>
+            <button mat-raised-button type="submit" class="mat-primary" [disabled]="!registerForm.valid">Registreren</button>
 
         </form>
 
-    </md-card-content>
+    </mat-card-content>
 
-    <md-card-actions>
-        <button md-button routerLink="/login">Login</button>
-    </md-card-actions>
+    <mat-card-actions>
+        <a routerLink="/login">Al een account? Log dan in!</a>
+    </mat-card-actions>
 
-</md-card>
+</mat-card>

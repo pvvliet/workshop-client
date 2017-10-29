@@ -1,13 +1,13 @@
-<md-toolbar>
-    
-  Peters applicatie
-  
-  <div *ngIf="authenticated">
-      <ul>
-          <li routerLink="/">Home</li>
-          <li routerLink="/users">Users</li>
-          <li (click)="logout()">Uitloggen</li>
-      </ul>
-  </div>
-  
-</md-toolbar>
+<mat-toolbar color="primary">
+
+    <span routerLink="/" class="clickable">Lorem Ipsum applicatie</span>
+
+    <span class="fill-remaining-space"></span>
+
+    <div *ngIf="authenticated">
+        <button mat-raised-button class="mat-accent" (click)="goHome()">Home</button>
+        <button mat-raised-button class="mat-accent" (click)="goUsers()">Gebruikers</button>
+        <button mat-raised-button class="mat-warn" (click)="logout()">Uitloggen</button>
+    </div>
+
+</mat-toolbar>

@@ -26,9 +26,20 @@ export class HeaderComponent
         );
     }
     
+    public goHome()
+    {
+        this.router.navigate(['']);
+    }
+    
+    public goUsers()
+    {
+        this.router.navigate(['users']);
+    }
+    
     public logout()
     {
         this.authService.deleteAuthorization();
-        this.router.navigate(['']);
+        
+        this.goHome();
     }
 }
